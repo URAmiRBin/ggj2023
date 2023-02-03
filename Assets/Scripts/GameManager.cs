@@ -44,4 +44,10 @@ public class GameManager : MonoBehaviour
             weaponAmmoStat.text = "-";
         }
     }
+	
+	
+    public void AnnouncePlayerInSight()
+    {
+        Debug.Log("FUCK, CAMERA SAW ME");
+    }
 }
