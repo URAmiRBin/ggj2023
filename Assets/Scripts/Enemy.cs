@@ -15,10 +15,13 @@ public class Enemy : MonoBehaviour
     float patrolTimer;
     float patrolDestination;
 
+    private bool isFacingRight = false;
+
     private Vector2 initalPos;
     public enum EnemyState { Patrol, Offensive, Attacking };
     public EnemyState enemyState;
     public Rigidbody2D rig;
+    public Animator anim;
 
     public GameObject deathParticle;
 
@@ -45,6 +48,9 @@ public class Enemy : MonoBehaviour
             return;
         }
 
+        //animation
+        anim.SetFloat("Speed", Mathf.Abs(rig.velocity.x) > 0.1f ? 1 : 0);
+
         //patrol
         patrolTimer -= Time.deltaTime;
         if (patrolTimer < 0)
@@ -57,20 +63,23 @@ public class Enemy : MonoBehaviour
         var dir = (_gameManager.player.transform.position - transform.position).normalized;
         float angle = Vector3.Angle(transform.right, dir);
 
+        //facing
+        isFacingRight = patrolDestination > 0;
+        transform.localScale = new Vector2(isFacingRight ? 1 : -1, 1);
+
         //is in view
         if (enemyState == EnemyState.Attacking)
         {
-            if (angle < 45 || angle > 165)
+            //shoot
+            if ((angle < 45 && isFacingRight) || (angle > 165 && !isFacingRight))
             {
-                weaponAim.localScale = new Vector2(angle > 90 ? -1 : 1, 1);
-                //shoot
                 attackTimer -= Time.deltaTime;
                 if (attackTimer < 0)
                 {
                     attackTimer = attackRate;
-                    GameObject bullet = Instantiate(bulletPrefab, weaponAim.transform.position + (weaponAim.transform.right * weaponAim.localScale.x), weaponAim.transform.rotation * Quaternion.Euler(0, 0, 90));
+                    GameObject bullet = Instantiate(bulletPrefab, weaponAim.transform.position + (weaponAim.transform.right * transform.localScale.x), weaponAim.transform.rotation * Quaternion.Euler(0, 0, 90));
                     Bullet bulletScript = bullet.GetComponent<Bullet>();
-                    bulletScript.rg.AddForce(weaponAim.right * weaponAim.localScale.x * bulletScript.speed, ForceMode2D.Impulse);
+                    bulletScript.rg.AddForce(weaponAim.right * transform.localScale.x * bulletScript.speed, ForceMode2D.Impulse);
                 }
             }
         }
