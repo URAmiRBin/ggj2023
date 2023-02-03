@@ -1373,6 +1373,7 @@ MonoBehaviour:
   player: {fileID: 1469853532}
   droppedWeapons: []
   weaponAmmoStat: {fileID: 1242219761}
+  healthStat: {fileID: 0}
   debugText: {fileID: 1375933144}
 --- !u!4 &545632040
 Transform:
@@ -1716,17 +1717,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 773337421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34347ae0ef38f5945a7cfb75a3b6afef, type: 3}
+  m_Script: {fileID: 11500000, guid: c58caebec63973f4390505456fb46ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sight: 3
   sightAngle: 15
-  eyes: {fileID: 1441445388}
-  patrolRange: 4
-  partolSpeed: 2
-  offensiveSpeed: 4
-  rig: {fileID: 773337424}
+  eyes: {fileID: 0}
+  lastPos: {x: 0, y: 0, z: 0}
+  enemyState: 0
+  initPos: {x: 0, y: 0, z: 0}
+  patrolRange: 0
+  partolSpeed: 0
+  offensiveSpeed: 0
+  flipSide: 0
+  goingToinitPos: 0
+  rig: {fileID: 0}
+  activeSpeed: 0
+  targetPosition: {x: 0, y: 0, z: 0}
   attackRange: 1
+  moving: 1
+  playerInSight: 0
+  player: {fileID: 0}
 --- !u!61 &773337423
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2287,6 +2298,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &907725447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869776, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8333955726833869789, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
+      propertyPath: m_Name
+      value: _Player (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 340519b0f6d0bca4087b2f728fb31724, type: 3}
 --- !u!1 &920294727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3535,7 +3611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1469853528
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3663,11 +3739,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a18e629ff5954c41a7dc7e1f01b248f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlable: 1
+  isPlayerHidden: 0
+  health: 0
   speed: 5
-  sitSpeed: 2
   jumpForce: 3
   dashSpeed: 20
   dashDuration: 0.2
+  playerRenderer: {fileID: 0}
   groundCheck: {fileID: 853743594}
   groundLayer:
     serializedVersion: 2
@@ -3675,8 +3754,6 @@ MonoBehaviour:
   weaponAim: {fileID: 420543313}
   currentWeapon: {fileID: 0}
   _GameManager: {fileID: 545632039}
-  closetRange: 1
-  renderer: {fileID: 1469853529}
 --- !u!1 &1485221335
 GameObject:
   m_ObjectHideFlags: 0
