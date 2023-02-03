@@ -6585,13 +6585,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1248208895}
   parallaxEffect: 0.75
+--- !u!1 &1469853527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8333955726833869789, guid: 92445d7639d842848a5e0281600a2456,
+    type: 3}
+  m_PrefabInstance: {fileID: 8333955728052046986}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1469853528
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469853527}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 6554a5b69514ca7498af5f31495d6b36, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1.15}
+  m_Direction: 0
 --- !u!114 &1469853532 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8333955726833869782, guid: 92445d7639d842848a5e0281600a2456,
     type: 3}
   m_PrefabInstance: {fileID: 8333955728052046986}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1469853527}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a18e629ff5954c41a7dc7e1f01b248f, type: 3}
@@ -35988,5 +36010,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8333955726833869778, guid: 92445d7639d842848a5e0281600a2456, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 92445d7639d842848a5e0281600a2456, type: 3}

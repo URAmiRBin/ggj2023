@@ -105,6 +105,9 @@ public class Enemy : MonoBehaviour
         if (died == false)
         {
             died = true;
+        }
+        else
+        {
             return;
         }
         if (deathParticle)
