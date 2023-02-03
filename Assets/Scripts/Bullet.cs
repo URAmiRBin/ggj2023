@@ -45,8 +45,23 @@ public class Bullet : MonoBehaviour
                 Destroy(impact, 3f);
             }
         }
-        if (sticks && collision.transform.name.Contains("Arrow") == false)
+        //damage
+        if (collision.transform.tag == "Enemy")
         {
+            Enemy enmy = collision.transform.GetComponent<Enemy>();
+            if (enmy)
+            {
+                enmy.health -= 25;
+            }
+        }
+        //
+        if (sticks)
+        {
+            if (collision.transform.name.Contains("Arrow") ||
+                collision.transform.tag == "Enemy")
+            {
+                return;
+            }
             if (rg)
             {
                 rg.angularVelocity = 0;

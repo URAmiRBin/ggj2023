@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1675505445962734914}
   m_Layer: 11
   m_Name: _Bullet_A
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -122,7 +122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb208294508d83478c0563419e2c085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 15
   rg: {fileID: 1675505445962734914}
+  reusable: 0
+  sticks: 0
+  tention: 0
+  hitImpact: {fileID: 1436873941932994, guid: 9f259d4b68a9eed499adee6018dc545d, type: 3}
 --- !u!50 &1675505445962734914
 Rigidbody2D:
   serializedVersion: 4
@@ -142,5 +147,5 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0

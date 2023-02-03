@@ -187,6 +187,7 @@ public class PlayerControl : MonoBehaviour
             return;
         }
 
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), isPlayerHidden);
         if (isPlayerHidden)
         {
             playerRig.velocity = Vector2.zero;
@@ -279,7 +280,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (collision.transform.CompareTag("Closet"))
         {
-            if (!isDashing && Input.GetButtonDown("Jump"))// && isGrounded())
+            if (!isDashing && Input.GetButtonDown("Jump") && isGrounded())
             {
                 if (isPlayerHidden)
                 {
