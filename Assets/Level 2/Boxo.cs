@@ -13,5 +13,6 @@ public class Boxo : MonoBehaviour {
 
     private void DropBox() {
         boxRb.isKinematic = false;
+        boxRb.transform.SetParent(null);
     }
 }
