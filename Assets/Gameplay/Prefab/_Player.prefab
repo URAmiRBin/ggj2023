@@ -191,7 +191,7 @@ MonoBehaviour:
   groundCheck: {fileID: 8333955728360135520}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4352
   weaponAim: {fileID: 8333955727665084379}
   currentWeapon: {fileID: 0}
   _GameManager: {fileID: 0}
