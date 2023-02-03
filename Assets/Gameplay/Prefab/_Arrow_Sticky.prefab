@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1675505445962734918}
   - component: {fileID: 1675505445962734914}
   m_Layer: 11
-  m_Name: _Arrow_A
+  m_Name: _Arrow_Sticky
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb208294508d83478c0563419e2c085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 25
   rg: {fileID: 1675505445962734914}
-  reusable: 0
-  sticks: 0
+  reusable: 1
+  sticks: 1
   tention: 0
   hitImpact: {fileID: 0}
 --- !u!50 &1675505445962734914
