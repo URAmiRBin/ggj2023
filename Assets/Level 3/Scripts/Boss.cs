@@ -4,36 +4,52 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    public Transform weaponAim;
-    public Weapon currentWeapon;
-    public float powerShot;
-
-    public Animator animator;
-    public List<Transform> directions;
-
     public float Health;
 
+    float fireRate;
+
+    public Transform weaponAim;
+    public GameObject bowPrefab;
+
+    public Animator animator;
+
+    PlayerControl _player;
     // Start is called before the first frame update
     void Start()
     {
-        //StartCoroutine(StartShooting());
+        _player = FindObjectOfType<PlayerControl>();
     }
 
-    void Shoot(Vector2 direction)
+    private void Update()
     {
-            GameObject bullet = Instantiate(currentWeapon.bulletType, weaponAim.transform.position + (weaponAim.transform.right * 1f), weaponAim.transform.rotation * Quaternion.Euler(0, 0, 90));
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.rg.AddForce(direction * bulletScript.speed * powerShot, ForceMode2D.Impulse);
-    }
-
-    private IEnumerator StartShooting()
-    {
-        yield return new WaitForSeconds(3);
-
-        foreach (Transform direction in directions)
+        if (Health <= 0)
         {
-            Shoot(direction.right);
-            yield return new WaitForSeconds(0.5f);
+            return;
         }
+
+        Vector2 playerDir = _player.transform.position - transform.position;
+        //attack
+        if (playerDir.magnitude < 999)
+        {
+            animator.SetBool("isAttacking", true);
+            fireRate -= Time.deltaTime;
+            if (fireRate < 0)
+            {
+                fireRate = Random.Range(0.25f, 1);
+                RandomShoot();
+            }
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
+    }
+
+    void RandomShoot()
+    {
+        GameObject bullet = Instantiate(bowPrefab, weaponAim.transform.position, weaponAim.transform.rotation * Quaternion.Euler(0, 0, 90));
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        bulletScript.rg.AddForce(-weaponAim.right * 15 + (weaponAim.up * Random.Range(-20, 10)), ForceMode2D.Impulse);
+        Destroy(bullet, 5);
     }
 }

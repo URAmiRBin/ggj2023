@@ -58,7 +58,8 @@ public class Bullet : MonoBehaviour
         if (sticks)
         {
             if (collision.transform.name.Contains("Arrow") ||
-                collision.transform.tag == "Enemy")
+                collision.transform.tag == "Enemy" ||
+                collision.transform.tag == "Player")
             {
                 return;
             }
