@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - Closet
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - Closet
   - Hidden
   - Enemy
-  - 
-  - 
-  - 
+  - Bullet
+  - Weapon
+  - Environment
   - 
   - 
   - 
