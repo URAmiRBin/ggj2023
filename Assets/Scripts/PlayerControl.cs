@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -317,9 +318,13 @@ public class PlayerControl : MonoBehaviour
         }
 
         //damage
-        if (collision.transform.CompareTag("Bullet"))// && !collision.transform.name.Contains("Player"))
+        if (collision.transform.CompareTag("Bullet") && !collision.rigidbody.isKinematic)
         {
             health -= 10;
         }
+    }
+
+    private void Die() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
