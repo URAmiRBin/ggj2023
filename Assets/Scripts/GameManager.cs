@@ -10,16 +10,21 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl player;
 
+    [HideInInspector]
     public List<Weapon> droppedWeapons;
 
     public Text weaponAmmoStat;
+    public Text healthStat;
 
     public Text debugText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Weapon[] allWeapons = FindObjectsOfType<Weapon>();
+        foreach (Weapon allWp in allWeapons) {
+            droppedWeapons.Add(allWp);
+        }
     }
 
     // Update is called once per frame
@@ -37,11 +42,13 @@ public class GameManager : MonoBehaviour
         //ammo
         if (player.currentWeapon)
         {
-            weaponAmmoStat.text = player.currentWeapon.model + " - " + player.currentWeapon.ammo;
+            weaponAmmoStat.text = player.currentWeapon.model + ": " + player.currentWeapon.ammo;
         }
         else
         {
-            weaponAmmoStat.text = "-";
+            weaponAmmoStat.text = "x";
         }
+        //health
+        healthStat.text = "+" + player.health;
     }
 }

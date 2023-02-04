@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private bool moving = true;
     private bool playerInSight;
     private Collider2D player;
+    private bool isBackToInit;
 
     void Start()
     {
@@ -37,10 +38,16 @@ public class EnemyController : MonoBehaviour
                 enemyState = EnemyState.Offensive;
                 return;
             }
-            if (DistanceTo(initPos) >= patrolRange)
+            if (!isBackToInit && DistanceTo(initPos) >= patrolRange - 1)
+            {
+                isBackToInit = true;
                 GoToPosition(initPos, partolSpeed);
-            else
+            }
+            else if (DistanceTo(initPos) < patrolRange)
+            {
+                isBackToInit = false;
                 Patrol();
+            }
 
             UpdatePosition();
         }
