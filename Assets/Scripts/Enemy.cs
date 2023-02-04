@@ -109,6 +109,11 @@ public class Enemy : MonoBehaviour
         rig.velocity = new Vector2(patrolDestination * patrolSpeed, rig.velocity.y);
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.transform.CompareTag("Box"))
+            Death();
+    }
+
     public void Death()
     {
         if (died == false)
