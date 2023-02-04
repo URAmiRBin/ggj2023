@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         playerPos.y = player.transform.position.y;
         playerPos.z = cam.transform.position.z;
 
-        float PlayerHeight = 0;
+        float PlayerHeight = 2;
         cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + (Vector3.up * PlayerHeight), 2f * Time.deltaTime);
 
         //ammo

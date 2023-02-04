@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     public float patrolSpeed = 1f;
     float patrolTimer;
-   public float patrolDestination;
+    float patrolDestination;
 
     private bool isFacingRight = false;
 
@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
 
         //facing
         isFacingRight = patrolDestination > 0;
-        transform.localScale = new Vector2(isFacingRight ? transform.localScale.x : -transform.localScale.x, transform.localScale.y);
+        transform.localScale = new Vector2(isFacingRight ? 1 : -1, 1);
 
         //is in view
         if (enemyState == EnemyState.Attacking)
