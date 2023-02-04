@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl player;
 
+    public Vector2 camOffset = new Vector2(1, 0);
+    public float camZoom = 2;
+
+    public bool followPlayer = true;
+
     // [HideInInspector]
     public List<Weapon> droppedWeapons;
 
@@ -31,13 +36,18 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         //camera
-        Vector3 playerPos = Vector3.zero;
-        playerPos.x = player.transform.position.x;
-        playerPos.y = player.transform.position.y;
-        playerPos.z = cam.transform.position.z;
+        if (followPlayer)
+        {
+            Vector3 playerPos = Vector3.zero;
+            playerPos.x = player.transform.position.x;
+            playerPos.y = player.transform.position.y;
+            playerPos.z = cam.transform.position.z;
 
-        float PlayerHeight = 2;
-        cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + (Vector3.up * PlayerHeight) + (Vector3.right * 2.5f), 2f * Time.deltaTime);
+            cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + new Vector3(camOffset.x, camOffset.y), 2f * Time.deltaTime);
+        }
+
+        //zoom
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, camZoom, 1f * Time.deltaTime);
 
         //ammo
         if (player.currentWeapon)
