@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level 2/TitleScreen.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Level 2/1.unity
+    guid: 625a69e810b1a4f87879ed767ee8a0cb
+  - enabled: 1
+    path: Assets/Level 3/Level 3.unity
+    guid: 575066e79cdec74429afd270c53b30b0
+  - enabled: 1
+    path: Assets/Level 2/EnginScreen.unity
+    guid: fb4a613dc42860d009f392dd0a906f4b
   m_configObjects: {}

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class Boss : MonoBehaviour
     public Animator animator;
 
     PlayerControl _player;
+
+    public Image healthImg;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +29,15 @@ public class Boss : MonoBehaviour
     {
         if (Health <= 0)
         {
+            SceneManager.LoadScene("EnginScreen");
             return;
         }
 
         Vector2 playerDir = _player.transform.position - transform.position;
         //attack
-        if (playerDir.magnitude < 999)
+        if (playerDir.magnitude < 15)
         {
+            healthImg.transform.parent.gameObject.SetActive(true);
             animator.SetBool("isAttacking", true);
             fireRate -= Time.deltaTime;
             if (fireRate < 0)
@@ -43,6 +50,9 @@ public class Boss : MonoBehaviour
         {
             animator.SetBool("isAttacking", false);
         }
+
+        //ui
+        healthImg.fillAmount = Health / 100f;
     }
 
     void RandomShoot()
@@ -51,5 +61,18 @@ public class Boss : MonoBehaviour
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.rg.AddForce(-weaponAim.right * 15 + (weaponAim.up * Random.Range(-20, 10)), ForceMode2D.Impulse);
         Destroy(bullet, 5);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            return;
+        }
+
+        if (collision.transform.name.Contains("Player"))
+        {
+            Health -= 10;
+        }
     }
 }

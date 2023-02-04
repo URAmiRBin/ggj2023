@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour {
-    public void LoadLevel(int level) {
-        SceneManager.LoadScene(level.ToString());
+    public void LoadLevel(string level) {
+        SceneManager.LoadScene(level);
     }
 
     public void QuitGame() {
