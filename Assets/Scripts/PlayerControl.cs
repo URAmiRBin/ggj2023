@@ -38,10 +38,11 @@ public class PlayerControl : MonoBehaviour
 
     public GameManager _GameManager;
 
-
+    public float initScale;
     // Start is called before the first frame update
     void Start()
     {
+        initScale = transform.localScale.x;
         playerAnim = GetComponent<Animator>();
         playerRig = GetComponent<Rigidbody2D>();
     }
@@ -113,7 +114,7 @@ public class PlayerControl : MonoBehaviour
         if (lookDir != Vector2.zero)
         {
             weaponAim.rotation = Quaternion.Euler(0, 0, AngleDeg);
-            weaponAim.localScale = new Vector3(transform.localScale.x, 1, 1);
+            weaponAim.localScale = new Vector3(transform.localScale.x > 0 ? 1:-1, 1, 1);
         }
 
         _GameManager.debugText.text = "Angle Deg: " + AngleDeg.ToString("0");
@@ -251,7 +252,7 @@ public class PlayerControl : MonoBehaviour
         isFacingRight = Mathf.Abs(AngleDeg) > 90;
 
         Vector3 localScale = transform.localScale;
-        localScale.x = isFacingRight ? -1 : 1;
+        localScale.x = isFacingRight ? -initScale : initScale;
         transform.localScale = localScale;
     }
 

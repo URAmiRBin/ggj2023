@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
         playerPos.y = player.transform.position.y;
         playerPos.z = cam.transform.position.z;
 
-        float PlayerHeight = 0;
+        float PlayerHeight = 2;
         cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + (Vector3.up * PlayerHeight) + (Vector3.right * 2.5f), 2f * Time.deltaTime);
 
         //ammo
@@ -50,5 +50,11 @@ public class GameManager : MonoBehaviour
         }
         //health
         healthStat.text = "+" + player.health;
+    }
+	
+	
+    public void AnnouncePlayerInSight()
+    {
+        Debug.Log("FUCK, CAMERA SAW ME");
     }
 }
