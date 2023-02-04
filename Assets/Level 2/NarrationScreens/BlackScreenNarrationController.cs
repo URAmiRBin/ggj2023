@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BlackScreenNarrationController : MonoBehaviourSingletion<BlackScreenNarrationController> {
+    [SerializeField] private Camera cam;
     [SerializeField] private Image backgroundImage;
     [SerializeField] private CanvasGroupFader textFader;
     [SerializeField] private CanvasGroupFader panelFader;
@@ -16,7 +17,9 @@ public class BlackScreenNarrationController : MonoBehaviourSingletion<BlackScree
     private IEnumerator ShowNarrationScreenCoroutine(NarrationSequence sequence) {
         NarrationData[] narrationData = sequence.narrationDatas;
         backgroundImage.sprite = sequence.image;
+        cam.backgroundColor = sequence.imageColorMultiplier;
         backgroundImage.color = sequence.imageColorMultiplier;
+        narrationText.color = sequence.textColor;
         panelFader.FadeIn();
         for (int i = 0; i < narrationData.Length; i++) {
             narrationText.text = narrationData[i].text;
@@ -26,5 +29,6 @@ public class BlackScreenNarrationController : MonoBehaviourSingletion<BlackScree
             yield return new WaitForSeconds(.5f);
         }
         panelFader.FadeOut();
+        sequence.onFinished?.Invoke();
     }
 }

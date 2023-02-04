@@ -240,45 +240,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.textColor.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.textColor.g
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.textColor.r
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.imageColorMultiplier.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.imageColorMultiplier.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.imageColorMultiplier.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.data[0].text
-      value: When a long term passed , the world was being  destroyed by humanity
-        day by day .
+      value: Querooko defeated the devil, root of all the miseries
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.data[1].text
-      value: Querooko fed up with this situation so to find the cause and fix the
-        main source she sets foot on a path full of mystery.
+      value: The evil seed is now gone and every creature can start fresh
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.data[2].text
-      value: She looks for the origin of all events with clues at each level.
+      value: 'Our Team:'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
+      propertyPath: beginningSequence.narrationDatas.Array.data[3].text
+      value: Mohammad, Reihane, Kiana, Gandom, Zohre, Amir, Tina, Milad, Edris
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
+      propertyPath: beginningSequence.narrationDatas.Array.data[4].text
+      value: Thanks for playing
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.data[0].duration
@@ -290,7 +296,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.narrationDatas.Array.data[2].duration
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
+      propertyPath: beginningSequence.narrationDatas.Array.data[3].duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
+      propertyPath: beginningSequence.narrationDatas.Array.data[4].duration
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.size
@@ -298,19 +312,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1522262}
+      objectReference: {fileID: 399818863}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadLevel
+      value: QuitGame
       objectReference: {fileID: 0}
     - target: {fileID: 2757466222603587080, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
       propertyPath: beginningSequence.onFinished.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -326,23 +340,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
---- !u!1 &1522261 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2433715705711222178, guid: 23f44e9f39783a54ba164da95527beee, type: 3}
-  m_PrefabInstance: {fileID: 1522260}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1522262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b35b424b1292e9fb38bb7bcdf688bc16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &399818862
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,7 +455,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
