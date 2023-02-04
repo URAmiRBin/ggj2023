@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public PlayerControl player;
 
-    [HideInInspector]
+    // [HideInInspector]
     public List<Weapon> droppedWeapons;
 
     public Text weaponAmmoStat;
@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
         playerPos.z = cam.transform.position.z;
 
         float PlayerHeight = 2;
-        cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + (Vector3.up * PlayerHeight), 2f * Time.deltaTime);
+        cam.transform.position = Vector3.Lerp(cam.transform.position, playerPos + (Vector3.up * PlayerHeight) + (Vector3.right * 2.5f), 2f * Time.deltaTime);
 
         //ammo
         if (player.currentWeapon)
