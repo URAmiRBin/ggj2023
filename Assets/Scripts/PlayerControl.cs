@@ -261,6 +261,7 @@ public class PlayerControl : MonoBehaviour
         if (currentWeapon.ammo > 0)
         {
             GameObject bullet = Instantiate(currentWeapon.bulletType, weaponAim.transform.position + (weaponAim.transform.right * 1f), weaponAim.transform.rotation * Quaternion.Euler(0, 0, 90));
+            //bullet.name += "_Player";
             Bullet bulletScript = bullet.GetComponent<Bullet>();
 
             if (currentWeapon.model == "Bow")
@@ -313,6 +314,12 @@ public class PlayerControl : MonoBehaviour
                     currentWeapon.ammo++;
                 }
             }
+        }
+
+        //damage
+        if (collision.transform.CompareTag("Bullet"))// && !collision.transform.name.Contains("Player"))
+        {
+            health -= 10;
         }
     }
 }
