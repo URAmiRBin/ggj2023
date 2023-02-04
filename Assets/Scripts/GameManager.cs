@@ -67,4 +67,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("FUCK, CAMERA SAW ME");
     }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
 }
